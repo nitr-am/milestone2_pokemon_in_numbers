@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,26 +8,121 @@
     <title>Pokemon in Numbers</title>
     <link rel="stylesheet" href="static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
-    
+    <link rel="stylesheet" href="static/css/style.css" type="text/css" />
+
     <script type="text/javascript" src="static/js/d3.min.js"></script>
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
     <script type="text/javascript" src="static/js/graph.js"></script>
 </head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor03">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
 <body>
-    
-    <h1>Pokemon in Numbers</h1>
-    <div id="name-selector"></div>
-    <br><br>
-    <div id="type-selector"></div>
-    <div id="legendary"></div>
-    <div id="avg-attack"></div>
-    <div id="avg-defense"></div>
-    <div id="avg-HP"></div>
-    <div id="total-pie"></div>
-    <div id="leg-total-corr"></div>
-    
-    
+    <div class='container'>
+
+        <div class="row">
+            <div class='col-md-6'>
+                <h1 class='row'>Pokemon in Numbers</h1>
+                <div class='row'>If you want to see a specific pokemon, select here:</div>
+                <div class='row' id="name-selector"></div>
+            </div>
+            <div class='col-md-6 row'>
+                <div class="col-md-6">
+                    <h3>Legendary</h3>
+                    <div class='numb-perc' id='legend-perc'></div>
+                </div>
+                <divclass="col-md-6">
+                    <h3>Non legendary</h3>
+                    <div class='numb-perc' id='non-legend-perc'></div>
+            </div>
+        </div>
+
+
+        <!--<div class='row'>-->
+        <!--    <div>If you want to see a specific pokemon, select here:</div>-->
+        <!--</div>-->
+        <!--<div class='row'>-->
+        <!--    <div id="name-selector"></div>-->
+        <!--</div>-->
+
+        <br><br>
+        <div class='row'>
+            <div class='col-md-5'>
+                <div id="legendary"></div>
+                <div>
+                    <div id="type-selector"></div>
+                    <br><br>
+                    <div class='col-12'>
+                        <p>As can be seen there is a big difference between the Pokemons that are legendary versus the not legendary pokemons.</p>
+                        <p>In the selector above can also be seen that the pokemons are divided in types.</p>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-7'>
+                <div id="total-pie"></div>
+                <p>As seen in the pie, there are many types of pokemons, this is the power they have, but the most common types are "Water", "Normal", "Grass" and "Bug" representing almost 50% of the total types.</p>
+                <p>If we turn the pie into the legendary ones, we will see that most of them are "Psychic" and "Dragon".</p>
+            </div>
+        </div>
+        <br><br>
+        <div class='row'>
+            <div class='col-md-8' id="avg-attack"></div>
+            <div class='col-md-4'>
+                <p>In this graph we can see the average attack according to the type of pokemon. As shown the "Fairy" type is the one with less average attack power. The one with more attack power are the "Dragon", the "Fighting", the "Ground", the "Rock"
+                    and "Steele".</p>
+                <p>All of them have an average attack power greatr then 80 points.</p>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-md-8' id="avg-defense"></div>
+            <div class='col-md-4'>
+                <P>In the "Average Defense Power" chart we can see that there are ones that stand out between the rest. "Dragon", "Ghost", "Rock" and "Steel".
+                We can see that "Dragon", "Rock" and "Steel" outstand either in attack and defense.</P>
+                </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-8' id="avg-HP"></div>
+            <div class='col-md-4'>The "Average Hit Points" chart stand for how many heats in average each one of the type of pokemon can resist before death. It is the resistance of the pokemons. In this cathegory we see they all are pretty similar bue the "Dragon" stands above all.</div>
+        </div>
+        <div class='row'>
+            <div class='col-md-8' id="leg-total-corr"></div>
+            <div class='col-md-4'>
+                <p>In the scatter plot chart we see that there is a very loose correlation but it still makes a patron. Stating that as greater the speed, greater is the total power of the pokemons.</p>
+                <p>In this chart we can also see that the green dots belong t Legendary pokemon and we can see that all of them are in a power greater than 550 which means that all the legendary pokemos are powerful.</p>
+            </div>
+        </div>
+
+    </div>
+
 </body>
+
 </html>
