@@ -1,0 +1,19 @@
+.numb-perc {
+    font-size: 44px;
+    text-align: center;
+    line-height: normal;
+}
+
+.section {
+    border-bottom: 1px solid #e6e6e6;
+    padding: 30px, 0;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.icons {
+    padding: 5px;
+}
+
