@@ -4,23 +4,25 @@ queue()
 
 function makeGraphs(error, pokeData) {
     var ndx = crossfilter(pokeData);
-    
+
     pokeData.forEach(function(d) {
         d.Attack = parseInt(d.Attack);
         d.Defense = parseInt(d.Defense);
         d.HP = parseInt(d.HP);
         d.Total = parseInt(d.Total);
     })
-    
+
 
     show_name_selector(ndx);
     show_type_selector(ndx);
+    show_perc_legend(ndx, 'True', '#legend-perc');
+    show_perc_legend(ndx, 'False', '#non-legend-perc');
     show_legendary(ndx);
     show_avg_attack(ndx);
     show_avg_defense(ndx);
     show_avg_hitPoints(ndx);
     show_totalPower(ndx);
-    
+
     show_leg_total_corr(ndx);
 
     dc.renderAll();
@@ -51,7 +53,39 @@ function show_type_selector(ndx) {
         .group(group);
 }
 
+// -------- Pecentage of legendary
 
+function show_perc_legend(ndx, legend, element) {
+    var percOfLegendary = ndx.groupAll().reduce(
+        function(p, v) {
+            if (v.Legendary === legend) {
+                p.count++;
+                
+            }
+            return p;
+        },
+        function(p, v) {
+            if (v.Legendary === legend ) {
+                p.count--;
+            }
+            return p;
+        },
+        function() {
+            return {count: 0};
+        }
+    );
+    
+    dc.numberDisplay(element)
+        .formatNumber(d3.format('.2%'))
+        .valueAccessor(function (d) {
+            if (d.count == 0) {
+                return 0;
+            } else {
+                return (d.count/800)
+            }
+        })
+        .group(percOfLegendary);
+}
 
 //------------------- Legendary bars
 
@@ -60,7 +94,7 @@ function show_legendary(ndx) {
     var group = dim.group();
 
     dc.barChart("#legendary")
-        .width(400)
+        .width(200)
         .height(300)
         .margins({ top: 10, right: 50, bottom: 30, left: 50 })
         .dimension(dim)
@@ -77,7 +111,7 @@ function show_legendary(ndx) {
 
 function show_avg_attack(ndx) {
     var dim = ndx.dimension(dc.pluck('Type 1'));
-    
+
     function add_item(p, v) {
         p.count++;
         p.total += v.Attack;
@@ -87,18 +121,19 @@ function show_avg_attack(ndx) {
 
     function remove_item(p, v) {
         p.count--;
-        if(p.count == 0) {
+        if (p.count == 0) {
             p.total = 0;
             p.average = 0;
-        } else {
+        }
+        else {
             p.total -= v.Attack;
             p.average = p.total / p.count;
         }
         return p;
     }
-    
+
     function initialise() {
-        return {count: 0, total: 0, average: 0};
+        return { count: 0, total: 0, average: 0 };
     }
 
     var attackByType = dim.group().reduce(add_item, remove_item, initialise);
@@ -126,7 +161,7 @@ function show_avg_attack(ndx) {
 
 function show_avg_defense(ndx) {
     var dim = ndx.dimension(dc.pluck('Type 1'));
-    
+
     function add_item(p, v) {
         p.count++;
         p.total += v.Defense;
@@ -136,22 +171,23 @@ function show_avg_defense(ndx) {
 
     function remove_item(p, v) {
         p.count--;
-        if(p.count == 0) {
+        if (p.count == 0) {
             p.total = 0;
             p.average = 0;
-        } else {
+        }
+        else {
             p.total -= v.Defense;
             p.average = p.total / p.count;
         }
         return p;
     }
-    
+
     function initialise() {
-        return {count: 0, total: 0, average: 0};
+        return { count: 0, total: 0, average: 0 };
     }
 
     var defenseByType = dim.group().reduce(add_item, remove_item, initialise);
-    
+
     dc.barChart("#avg-defense")
         .width(700)
         .height(300)
@@ -176,7 +212,7 @@ function show_avg_defense(ndx) {
 
 function show_avg_hitPoints(ndx) {
     var dim = ndx.dimension(dc.pluck('Type 1'));
-    
+
     function add_item(p, v) {
         p.count++;
         p.total += v.HP;
@@ -186,22 +222,23 @@ function show_avg_hitPoints(ndx) {
 
     function remove_item(p, v) {
         p.count--;
-        if(p.count == 0) {
+        if (p.count == 0) {
             p.total = 0;
             p.average = 0;
-        } else {
+        }
+        else {
             p.total -= v.HP;
             p.average = p.total / p.count;
         }
         return p;
     }
-    
+
     function initialise() {
-        return {count: 0, total: 0, average: 0};
+        return { count: 0, total: 0, average: 0 };
     }
 
     var defenseByType = dim.group().reduce(add_item, remove_item, initialise);
-    
+
     dc.barChart("#avg-HP")
         .width(700)
         .height(300)
@@ -228,8 +265,8 @@ function show_totalPower(ndx) {
     var group = dim.group();
 
     dc.pieChart('#total-pie')
-        .height(400)
-        .radius(600)
+        .height(300)
+        .radius(400)
         .innerRadius(70)
         .dimension(dim)
         .group(group)
@@ -239,11 +276,11 @@ function show_totalPower(ndx) {
 // ---------- Legendary vs Total Power Scatter plot
 
 function show_leg_total_corr(ndx) {
-    
+
     var legendaryColors = d3.scale.ordinal()
-    .domain(['True', 'False'])
-    .range(['green', 'blue']);
-    
+        .domain(['True', 'False'])
+        .range(['green', 'blue']);
+
     var pDim = ndx.dimension(dc.pluck("Total"));
     var pwrDim = ndx.dimension(function(d) {
         return [d.Total, d.Speed, d.Name, d.Legendary];
@@ -256,7 +293,7 @@ function show_leg_total_corr(ndx) {
     var maxSpeed = pwrDim.top(1)[0].Speed;
 
     dc.scatterPlot("#leg-total-corr")
-        .width(800)
+        .width(700)
         .height(400)
         .x(d3.scale.linear().domain([minPower, maxPower]))
         .y(d3.scale.linear().domain([minSpeed, maxSpeed]))
@@ -274,5 +311,32 @@ function show_leg_total_corr(ndx) {
         .colors(legendaryColors)
         .dimension(pwrDim)
         .group(LegendaryVsPwrGroup)
-        .margins({top: 10, right: 50, bottom: 75, left: 75});
+        .margins({ top: 10, right: 50, bottom: 75, left: 75 });
 }
+
+
+function writeToDocument(type) {
+    var el = document.getElementById("data");
+    el.innerHTML = "";
+
+    getData(type, function(data) {
+        data = data.results;
+
+        data.forEach(function(item) {
+            el.innerHTML += "<p>" + item.name + "</p>";
+        });
+    });
+}
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
+ $('#contact-button').click(function() {
+        $('.contact-form').slideToggle('slow');
+    })   
