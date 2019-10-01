@@ -22,8 +22,8 @@ function makeGraphs(error, pokeData) {
     show_avg_defense(ndx);
     show_avg_hitPoints(ndx);
     show_totalPower(ndx);
-
     show_leg_total_corr(ndx);
+    show_data_table(ndx);
 
     dc.renderAll();
 
@@ -314,19 +314,48 @@ function show_leg_total_corr(ndx) {
         .margins({ top: 10, right: 50, bottom: 75, left: 75 });
 }
 
+// ---------- Table
 
-function writeToDocument(type) {
-    var el = document.getElementById("data");
-    el.innerHTML = "";
+function show_data_table(ndx) {
 
-    getData(type, function(data) {
-        data = data.results;
+var dim = ndx.dimension(function(d) { return d.dim; });
 
-        data.forEach(function(item) {
-            el.innerHTML += "<p>" + item.name + "</p>";
-        });
-    });
+var table = dc.dataTable("#dc-data-table")
+
+     .dimension(dim)
+     .group(function(d) { return ""; })
+     .size(10)
+     
+     .columns([
+        function(d) { return d.Name; },
+        function(d) { return d['Type 1']; },
+        function(d) { return d.HP; },
+        function(d) { return d.Attack; },
+        function(d) { return d.Defense; },
+        function(d) { return d['Sp. Atk']; },
+        function(d) { return d['Sp. Def']; },
+        function(d) { return d.Speed; },
+        function(d) { return d.Legendary; },
+        function(d) { return d.Total; },
+        
+     ]).sortBy(function(d) {
+            return d.Total;
+     })
+     .order(d3.descending)
 }
+
+// function writeToDocument(type) {
+//     var el = document.getElementById("dc-data-table");
+//     el.innerHTML = "";
+
+//     getData(type, function(data) {
+//         data = data.results;
+
+//         data.forEach(function(item) {
+//             el.innerHTML += "<p>" + item.name + "</p>";
+//         });
+//     });
+// }
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
