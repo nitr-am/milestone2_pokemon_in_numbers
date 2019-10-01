@@ -107,6 +107,23 @@ function show_legendary(ndx) {
         .yAxis().ticks(20);
 }
 
+// -------------- Pie chart by Type
+// know how credits to shark attack project mentioned on the readme file
+
+function show_totalPower(ndx) {
+    var dim = ndx.dimension(dc.pluck('Type 1'));
+    var group = dim.group();
+
+    dc.pieChart('#total-pie')
+        .height(300)
+        .radius(400)
+        .innerRadius(70)
+        .dimension(dim)
+        .group(group)
+        .transitionDuration(1500);
+}
+
+
 // ---------------------- Average Attack
 
 function show_avg_attack(ndx) {
@@ -258,22 +275,7 @@ function show_avg_hitPoints(ndx) {
 
 }
 
-// -------------- By Type pie chart
-
-function show_totalPower(ndx) {
-    var dim = ndx.dimension(dc.pluck('Type 1'));
-    var group = dim.group();
-
-    dc.pieChart('#total-pie')
-        .height(300)
-        .radius(400)
-        .innerRadius(70)
-        .dimension(dim)
-        .group(group)
-        .transitionDuration(1500);
-}
-
-// ---------- Legendary vs Total Power Scatter plot
+// ---------- Scatter plot Legendary vs Total Power 
 
 function show_leg_total_corr(ndx) {
 
@@ -315,10 +317,12 @@ function show_leg_total_corr(ndx) {
 }
 
 // ---------- Table
+// --- Table done with the help of the one done in the shark project mentioned on the readme file. Also with the help of Data & the DOM unit from the course
 
 function show_data_table(ndx) {
 
 var dim = ndx.dimension(function(d) { return d.dim; });
+
 
 var table = dc.dataTable("#dc-data-table")
 
@@ -344,18 +348,7 @@ var table = dc.dataTable("#dc-data-table")
      .order(d3.descending)
 }
 
-// function writeToDocument(type) {
-//     var el = document.getElementById("dc-data-table");
-//     el.innerHTML = "";
-
-//     getData(type, function(data) {
-//         data = data.results;
-
-//         data.forEach(function(item) {
-//             el.innerHTML += "<p>" + item.name + "</p>";
-//         });
-//     });
-// }
+// ------------- Open the form to send an email. 
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -364,6 +357,8 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+// ------------ Jquery-------------
 
 $(document).ready(function() {
 
