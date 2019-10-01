@@ -336,7 +336,16 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
+$(document).ready(function() {
 
- $('#contact-button').click(function() {
+$('#contact-button').click(function() {
         $('.contact-form').slideToggle('slow');
     })   
+    
+//------- Button in the navbar
+
+
+$('#button1').click(function() {
+        $('#para1').slideToggle('slow', );
+    })
+});    

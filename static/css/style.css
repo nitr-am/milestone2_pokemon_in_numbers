@@ -7,6 +7,32 @@
     margin-top: 15px;
 }
 
+#button1 {
+    width: 52px;
+    height: 52px;
+    padding: 12px 12px;
+    border-radius: 50%;
+    border: 0;
+    /*font-size: 13px;*/
+    /*line-height: 7px;*/
+    text-align: center;
+}
+
+.card_para{
+	flex:1 0 auto;
+	display:none;
+}
+
+.card{
+	flex:1; 
+	display: none;	
+	flex-flow:column;	/* */
+	min-width: 240px; /**/
+	margin: 10px;
+	padding: 20px;
+	background-color: #fff;
+}	
+
 .numb-perc {
     font-size: 44px;
     text-align: center;
@@ -108,9 +134,12 @@
     padding: 16px 20px;
     border: none;
     width: 280px;
-    background-color: #1f77b4;
 }
 
 .bold-letters {
     font-weight: bold;
+}
+
+.buttons-color {
+     background-color: #1f77b4
 }
