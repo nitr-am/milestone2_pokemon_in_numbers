@@ -10,35 +10,24 @@
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel="stylesheet" href="static/css/style.css" type="text/css" />
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="static/js/d3.min.js"></script>
-    <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
-    <script type="text/javascript" src="static/js/dc.min.js"></script>
-    <script type="text/javascript" src="static/js/queue.min.js"></script>
-    <script type="text/javascript" src="static/js/graph.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-        (function() {
-            emailjs.init("user_5IQ6UdgbAdPHld4wCIYpD");
-        })();
-    </script>
 </head>
 
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse container-fluid vertical-center" id="navbarColor03">
+<!--Navbar source from Bootswatch.com-->
+    <nav class="navbar navbar-expand-lg nav-container navbar-light bg-light container-fluid">
+        <div class="collapse container-fluid vertical-center" id="navbarColor03">
             <p class="navbar-brand bold-letters navbar-align">Which type of pokemon is more powerful?</p>
             <button class="btn btn-secondary my-2 my-sm-0 buttons-color" id='button1' type="submit">Info</button>
-            <p class="navbar-brand align-right navbar-align">Click on any desired part of a graph and you will get information related on each graph. Enjoy!</p>
+            <p class="navbar-brand align-right navbar-align container-fluid">Click on any desired part of a graph and you will get information related on each graph. Enjoy!</p>
         </div>
     </nav>
+    <br><br>
 
+<!--Format and strucure obtained from Bootswatch.com-->
     <main>
-        <div class='container'>
+        <div class='container container-fluid'>
             <p id='para1' class="card_para card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat doloremque nihil vitae voluptatum, obcaecati. Sit quidem, fuga sed, assumenda incidunt provident quod odio iure commodi!</p>
 
             <section class="section section-1">
@@ -58,91 +47,98 @@
                             <div class='numb-perc' id='non-legend-perc'></div>
                     </div>
                 </div>
+                <br><br>
             </section>
 
-
-            <!--<div class='row'>-->
-            <!--    <div>If you want to see a specific pokemon, select here:</div>-->
-            <!--</div>-->
-            <!--<div class='row'>-->
-            <!--    <div id="name-selector"></div>-->
-            <!--</div>-->
-
             <br><br>
+            
             <section class="section">
-                <div class='row'>
-                    <div class='col-md-5'>
-                        <div id="legendary"></div>
-                        <div>
-                            <div id="type-selector"></div>
-                            <br><br>
-                            <div class='col-12'>
-                                <p>As can be seen there is a big difference between the Pokemons that are legendary versus the not legendary pokemons.</p>
-                                <p>In the selector above can also be seen that the pokemons are divided in types.</p>
+                <div class='container container-fluid'>
+                    <div class='row'>
+                        <div class='col-xs-12 col-md-5 col-sm-12'>
+                            <div id="legendary"></div>
+                            <div>
+                                <div id="type-selector"></div>
+                                <br><br>
+                                <div class='col-12'>
+                                    <p class='text-centre'>As can be seen there is a big difference between the Pokemons that are legendary versus the not legendary pokemons.</p>
+                                    <p class='text-centre'>In the selector above can also be seen that the pokemons are divided in types.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-7 col-xs-12 col-sm-12 row'>
+                            <div class='col-md-7 col-xs-12 col-sm-12' id="total-pie"></div>
+                            <div class='col-md-5 col-xs-12 col-sm-12 text-centre'>
+                                <p>As seen in the pie, there are many types of pokemons, this is the power they have, but the most common types are "Water", "Normal", "Grass" and "Bug" representing almost 50% of the total types.</p>
+                                <p>If we turn the pie into the legendary ones, we will see that most of them are "Psychic" and "Dragon".</p>
                             </div>
                         </div>
                     </div>
-                    <div class='col-md-7 row'>
-                        <div class='col-md-6' id="total-pie"></div>
-                        <div class='col-md-6'>
-                            <p>As seen in the pie, there are many types of pokemons, this is the power they have, but the most common types are "Water", "Normal", "Grass" and "Bug" representing almost 50% of the total types.</p>
-                            <p>If we turn the pie into the legendary ones, we will see that most of them are "Psychic" and "Dragon".</p>
-                        </div>
-                    </div>
                 </div>
+                <br><br>
             </section>
             <br><br>
+            
             <!---------Average attack---------->
             <section class="section">
+                <div class = 'container container-fluid'>
                 <div class='row'>
-                    <div class='col-md-8' id="avg-attack"></div>
+                    <div class='col-xs-12 col-sm-12 col-md-8 text-centre' id="avg-attack"></div>
                     <div class='col-md-4'>
-                        <p>In this graph we can see the average attack according to the type of pokemon. As shown the "Fairy" type is the one with less average attack power. The one with more attack power are the "Dragon", the "Fighting", the "Ground", the
-                            "Rock" and "Steele".
-                        </p>
-                        <p>All of them have an average attack power greatr then 80 points.</p>
+                        <p class='text-centre'>In this graph we can see the average attack according to the type of pokemon. As shown the "Fairy" type is the one with less average attack power. The one with more attack power are the "Dragon", the "Fighting", the "Ground", the
+                            "Rock" and "Steele".</p>
+                        <p class='text-centre'>All of them have an average attack power greatr then 80 points.</p>
                     </div>
                 </div>
+                <br><br>
             </section>
             <br><br>
 
             <!---------Average defense---------->
             <section class="section">
+                <div class = 'container container-fluid'>
                 <div class='row'>
                     <div class='col-md-8' id="avg-defense"></div>
                     <div class='col-md-4'>
                         <P>In the "Average Defense Power" chart we can see that there are ones that stand out between the rest. "Dragon", "Ghost", "Rock" and "Steel". We can see that "Dragon", "Rock" and "Steel" outstand either in attack and defense.</P>
                     </div>
                 </div>
+                </div>
+                <br><br>
             </section>
             <br><br>
 
             <!---------Average Hit Points---------->
             <section class="section">
+                <<div class = 'container container-fluid'>
                 <div class='row'>
                     <div class='col-md-8' id="avg-HP"></div>
                     <div class='col-md-4'>The "Average Hit Points" chart stand for how many heats in average each one of the type of pokemon can resist before death. It is the resistance of the pokemons. In this cathegory we see they all are pretty similar bue the "Dragon"
                         stands above all.
                     </div>
                 </div>
+                <br><br>
             </section>
             <br><br>
 
             <!---------Scatter Plot ---------->
             <section class="section">
-                <div class='row'>
-                    <div class='col-md-8' id="leg-total-corr"></div>
-                    <div class='col-md-4'>
-                        <p>In the scatter plot chart we see that there is a very loose correlation but it still makes a patron. Stating that as greater the speed, greater is the total power of the pokemons.</p>
-                        <p>In this chart we can also see that the green dots belong t Legendary pokemon and we can see that all of them are in a power greater than 550 which means that all the legendary pokemos are powerful.</p>
+                <div class='container container-fluid'>
+                    <div class='row'>
+                        <div class='col-md-8' id="leg-total-corr"></div>
+                        <div class='col-md-4'>
+                            <p>In the scatter plot chart we see that there is a very loose correlation but it still makes a patron. Stating that as greater the speed, greater is the total power of the pokemons.</p>
+                            <p>In this chart we can also see that the green dots belong t Legendary pokemon and we can see that all of them are in a power greater than 550 which means that all the legendary pokemos are powerful.</p>
+                        </div>
                     </div>
                 </div>
+                <br><br>
             </section>
             <br><br>
 
             <!-------------Table ---------->
             <section class="section">
-                <div class="container">
+                <div class = 'container container-fluid'>
                     <div class="row">
                         <h4>Some of the most powerful pokemons by type:</h4>
                         <table id="dc-data-table" class="table table-bordered">
@@ -164,6 +160,7 @@
                     </div>
                 </div>
         </div>
+        <br><br>
         </section>
         </div>
 
@@ -181,6 +178,7 @@
                 <form onsubmit='return sendMail(this);' class="form-container">
                     <h1>Contact form</h1>
 
+<!--Structure of code from a project made before.-->
                     <input type="text" name="name" id="fullname" class="form-control" placeholder="Name" required/>
                     <input type="email" name="email" id="emailadress" class="form-control" placeholder="Email" required/>
                     <textarea rows="5" name="request" id="request" class="form-control" placeholder="Request" required/></textarea>
@@ -202,6 +200,18 @@
             </p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static/js/d3.min.js"></script>
+    <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="static/js/dc.min.js"></script>
+    <script type="text/javascript" src="static/js/queue.min.js"></script>
+    <script type="text/javascript" src="static/js/graph.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_5IQ6UdgbAdPHld4wCIYpD");
+        })();
+    </script>
     <script type="text/javascript" src="static/js/sendEmail.js"></script>
 </body>
 
