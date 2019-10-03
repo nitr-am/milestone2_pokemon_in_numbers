@@ -114,6 +114,14 @@
     border: none;
     width: 280px;
 }
+.reset-button {
+    box-sizing: border-box;
+    position: center;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    width: 125px;
+}
 
 .bold-letters {
     font-weight: bold;
