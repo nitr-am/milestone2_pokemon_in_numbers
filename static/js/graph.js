@@ -372,4 +372,9 @@ $('#contact-button').click(function() {
 $('#button1').click(function() {
         $('#para1').slideToggle('slow', );
     })
-});    
+});
+
+// --------- Reset graphs
+function reset() {
+    window.location.reload()
+}
