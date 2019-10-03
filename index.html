@@ -28,7 +28,7 @@
 <!--Format and strucure obtained from Bootswatch.com-->
     <main>
         <div class='container container-fluid'>
-            <p id='para1' class="card_para card">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat doloremque nihil vitae voluptatum, obcaecati. Sit quidem, fuga sed, assumenda incidunt provident quod odio iure commodi!</p>
+            <p id='para1' class="card_para card">This webpage is all about Pokemon, the different existant type of pokemons, the average power each type has on the different properties and if you want to know all the information about a specific one you can also get right to it immediately using the selector tab below. Here you will se the most iportant properties, which are attack, defense, health points, speed and t the end you will se a general conslusion.</p>
 
             <section class="section section-1">
                 <div class="row">
@@ -140,7 +140,7 @@
             <section class="section">
                 <div class = 'container container-fluid'>
                     <div class="row">
-                        <h4>Some of the most powerful pokemons by type:</h4>
+                        <h4 class="bold-letters">Some of the most powerful pokemons by type:</h4>
                         <table id="dc-data-table" class="table table-bordered">
                             <thead>
                                 <tr class="header">
@@ -162,6 +162,25 @@
         </div>
         <br><br>
         </section>
+        
+         <!---------Conlcusion ---------->
+            <section class="section">
+                <div class='container container-fluid'>
+                    <div class='row'>
+                        <div class='col-12'>
+                            <h4 class="bold-letters">Conlcusion</h4>
+                            <p>Only a small percentage of the pokemons are legendary, and most of the legendaries are "Psychics" and "Dragons" and they are all powerful with a Total Power grater than 550 as seen in the scatter plot.<br>
+                            Now regarding the non legendary pokemons, most of them are in the "Water", "Normal", "Grass", and "Bug" categories.<br>
+                            The type of pokemons that resist most hits are the Dragons and then they are all pretty similar on its HP.<br>
+                            "Rock" and "Steel" have both great numbers in Attack and Deffense, but they are not so good on HP. The same happens with the "Ground" type but this one having greater numbers in HP than the other 2.<br>
+                            The most powerful types of pokemon combining all the different properties are "Dragon" for the legendaries and the "Ground" for the non lgendaies.
+                            A legendary pokemon will certeinly be a powerful one, but as the numbers state, won't be easy to find it as is only 8% from the total.</p>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+            </section>
+            <br><br>
         </div>
 
     </main>
@@ -174,6 +193,7 @@
 
             <a class="navbar-brand" href="index.html">Back to Top</a>
             <button class="btn btn-secondary my-2 my-sm-0 open-button contact-button buttons-color" onclick="openForm()" type="submit">Contact</button>
+            <button class="btn btn-secondary my-2 my-sm-0 buttons-color" id='button1' type="submit">Conslusion</button>
             <div class="form-popup contact-form center-form" id="myForm">
                 <form onsubmit='return sendMail(this);' class="form-container">
                     <h1>Contact form</h1>
