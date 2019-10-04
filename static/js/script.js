@@ -1,6 +1,14 @@
+// Libraries used:
+    // D3.js
+    // crossfilter.js
+    // DC.js
+    // jquery.js
+
 queue()
     .defer(d3.csv, "data/pokemon_data.csv")
     .await(makeGraphs);
+
+//----------- Function containing all the graphs 
 
 function makeGraphs(error, pokeData) {
     var ndx = crossfilter(pokeData);
@@ -348,7 +356,7 @@ var table = dc.dataTable("#dc-data-table")
      .order(d3.descending)
 }
 
-// ------------- Open the form to send an email. 
+// ------------- Open/close form to send an email. 
 
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -375,6 +383,7 @@ $('#button1').click(function() {
 });
 
 // --------- Reset graphs
+
 function reset() {
     window.location.reload()
 }
