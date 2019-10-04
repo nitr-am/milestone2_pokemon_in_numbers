@@ -56,8 +56,10 @@
                 <div class='container container-fluid'>
                     <div class='row'>
                         <div class='col-xs-12 col-md-5 col-sm-12'>
+                            <h4 class='underline'>Legendary Vs. Non Legendary bar chart</h4>
                             <div id="legendary"></div>
                             <div>
+                                <p>Select a type of pokemon here:</p>
                                 <div id="type-selector"></div>
                                 <br><br>
                                 <div class='col-12'>
@@ -69,6 +71,7 @@
                         <div class='col-md-7 col-xs-12 col-sm-12 row'>
                             <div class='col-md-7 col-xs-12 col-sm-12' id="total-pie"></div>
                             <div class='col-md-5 col-xs-12 col-sm-12 text-centre'>
+                            <h4 class="underline">Types of Pokemons:</h4>
                                 <p>As seen in the pie, there are many types of pokemons, this is the power they have, but the most common types are "Water", "Normal", "Grass" and "Bug" representing almost 50% of the total types.</p>
                                 <p>If we turn the pie into the legendary ones, we will see that most of them are "Psychic" and "Dragon".</p>
                             </div>
@@ -81,28 +84,30 @@
             
             <!---------Average attack---------->
             <section class="section">
-                <div class = 'container container-fluid'>
-                <div class='row'>
-                    <div class='col-xs-12 col-sm-12 col-md-8 text-centre' id="avg-attack"></div>
-                    <div class='col-md-4'>
-                        <p class='text-centre'>In this graph we can see the average attack according to the type of pokemon. As shown the "Fairy" type is the one with less average attack power. The one with more attack power are the "Dragon", the "Fighting", the "Ground", the
-                            "Rock" and "Steele".</p>
-                        <p class='text-centre'>All of them have an average attack power greatr then 80 points.</p>
+                <div class='container container-fluid'>
+                    <div class='row'>
+                        <div class='col-xs-12 col-sm-12 col-md-8 text-centre' id="avg-attack"></div>
+                        <div class='col-md-4'>
+                            <h4 class='underline'>Average Attack Power analysis</h4>
+                            <p class='text-centre'>In this graph we can see the average attack according to the type of pokemon. As shown the "Fairy" type is the one with less average attack power. The one with more attack power are the "Dragon", the "Fighting", the "Ground", the "Rock"
+                                and "Steele".</p>
+                            <p class='text-centre'>All of them have an average attack power greatr then 80 points.</p>
+                        </div>
                     </div>
-                </div>
-                <br><br>
+                    <br><br>
             </section>
             <br><br>
 
             <!---------Average defense---------->
             <section class="section">
-                <div class = 'container container-fluid'>
-                <div class='row'>
-                    <div class='col-md-8' id="avg-defense"></div>
-                    <div class='col-md-4'>
-                        <P>In the "Average Defense Power" chart we can see that there are ones that stand out between the rest. "Dragon", "Ghost", "Rock" and "Steel". We can see that "Dragon", "Rock" and "Steel" outstand either in attack and defense.</P>
+                <div class='container container-fluid'>
+                    <div class='row'>
+                        <div class='col-md-8' id="avg-defense"></div>
+                        <div class='col-md-4'>
+                            <h4 class='underline'>Average Defense Power analysis</h4>
+                            <P>In this chart we can see that there are ones that stand out between the rest. "Dragon", "Ghost", "Rock" and "Steel". We can see that "Dragon", "Rock" and "Steel" outstand either in attack and defense.</P>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <br><br>
             </section>
@@ -111,12 +116,15 @@
             <!---------Average Hit Points---------->
             <section class="section">
                 <<div class = 'container container-fluid'>
-                <div class='row'>
-                    <div class='col-md-8' id="avg-HP"></div>
-                    <div class='col-md-4'>The "Average Hit Points" chart stand for how many heats in average each one of the type of pokemon can resist before death. It is the resistance of the pokemons. In this cathegory we see they all are pretty similar bue the "Dragon"
-                        stands above all.
+                    <div class='row'>
+                        <div class='col-md-8' id="avg-HP"></div>
+                        <div class='col-md-4'>
+                            <h4 class='underline'>Average Healtht Points analysis</h4>
+                            <P>The "Average Hit Points" chart stand for how many heats in average each one of the type of pokemon can resist before death. It is the resistance of the pokemons. In this cathegory we see they all are pretty similar bue the "Dragon" stands above
+                                all.
+                            </P>
+                        </div>
                     </div>
-                </div>
                 <br><br>
             </section>
             <br><br>
@@ -127,6 +135,7 @@
                     <div class='row'>
                         <div class='col-md-8' id="leg-total-corr"></div>
                         <div class='col-md-4'>
+                            <h4 class='underline'>Speed Vs. Total Power by Pokemon Analysis</h4>
                             <p>In the scatter plot chart we see that there is a very loose correlation but it still makes a patron. Stating that as greater the speed, greater is the total power of the pokemons.</p>
                             <p>In this chart we can also see that the green dots belong t Legendary pokemon and we can see that all of them are in a power greater than 550 which means that all the legendary pokemos are powerful.</p>
                         </div>
@@ -225,7 +234,7 @@
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
-    <script type="text/javascript" src="static/js/graph.js"></script>
+    <script type="text/javascript" src="static/js/script.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
