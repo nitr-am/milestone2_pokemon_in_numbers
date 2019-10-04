@@ -8,7 +8,7 @@ If you have ever wonder this, this site is perfect for you. Here you will see al
 After reviewing the site you will have an idea of which type of pokemon is the most powerful and why is that. 
 Enjoy!
 
-To go now to the project website please click the following [GitHub Pages link](https://nitr-am.github.io/first-project-creative-code/).
+To go now to the project website please click the following [GitHub Pages link](https://nitr-am.github.io/milestone2_pokemon_in_numbers/).
 
 
 ## UX
@@ -124,7 +124,7 @@ The project has been tested in different screen sizes, like mobile phone, tablet
 
 This project was developed using the Cloud9 IDE from [Amazon Web Services](https://www.awseducate.com/student/s/awssite), committed to git and pushed to [GitHub](https://github.com/) online repository throughout a built in cloud9 function so everybody get access to it.
 
-To run this project directly form your browser, please click on the following [GitHub Pages link]().
+To run this project directly form your browser, please click on the following [GitHub Pages link](https://nitr-am.github.io/milestone2_pokemon_in_numbers/).
 
 To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
 
